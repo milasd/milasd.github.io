@@ -8,207 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Work+Sans:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom CSS for the Hybrid theme */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'IBM Plex Mono', monospace;
-            background-color: #F4F4F4;
-            color: #333;
-            line-height: 1.7;
-            font-size: 17px;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Split heading styles */
-        h1 {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800; /* Extra-bold for main title */
-        }
-
-        h2, h3 {
-            font-family: 'Syne', sans-serif;
-            font-weight: 700; /* Standard bold for other headings */
-        }
-
-        /* Class for the header subtitles */
-        .header-subtitle {
-            font-family: 'Work Sans', sans-serif;
-        }
-
-        /* Class for the thinner subtitle */
-        .subtitle-light {
-            font-weight: 300;
-        }
-
-        /* Blinking cursor effect */
-        .cursor::after {
-            content: '_';
-            animation: blink 1s step-start infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        /* Background Icons container */
-        #background-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .bg-icon {
-            position: absolute;
-            color: #ddd;
-            font-size: 2rem;
-            animation: float 25s infinite linear;
-            opacity: 0;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(100vh) scale(1); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
-        }
-
-        /* Simple link styling */
-        a {
-            color: #333;
-            text-decoration: underline;
-            font-weight: 500;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        a:hover {
-            background-color: #333;
-            color: #fafafa;
-            text-decoration: none;
-        }
-        
-        /* Card styling with black outline and shadow hover */
-        .card {
-            background-color: #fff;
-            border: 1px solid #333;
-            transition: box-shadow 0.3s ease-in-out;
-        }
-
-        .card:hover {
-           box-shadow: 5px 5px 0px #333;
-        }
-
-        /* --- Top Right Menu Styles --- */
-        #menu-hover-area {
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 50;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        #top-right-menu {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 0.75rem;
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        .menu-content-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .menu-button {
-            border: 1px solid #333;
-            padding: 0.4rem 1rem;
-            border-radius: 9999px;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(4px);
-            transition: opacity 0.3s ease;
-        }
-
-        .sakura-icon {
-            width: 36px;
-            height: 36px;
-            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-        }
-
-        .nav-links {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 0.75rem;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(-15px);
-            transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
-        }
-        
-        .nav-links a {
-            border: 1px solid #333;
-            padding: 0.4rem 1rem;
-            border-radius: 9999px;
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(4px);
-            color: #333;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            background-color: #333;
-            color: #fafafa;
-        }
-
-        #menu-hover-area.menu-open .menu-button {
-            opacity: 0.4;
-        }
-
-        #menu-hover-area.menu-open .nav-links {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-
-        #menu-hover-area.menu-open .sakura-icon {
-            transform: rotate(630deg);
-        }
-        
-        /* Styles for header social icons */
-        .header-socials a svg {
-            width: 28px;
-            height: 28px;
-            color: #555;
-            transition: color 0.3s;
-        }
-        .header-socials a:hover svg {
-            color: #000;
-        }
-
-        /* Styles for the footer */
-        .footer-text {
-            font-family: 'Work Sans', sans-serif;
-            font-style: normal;
-            font-size: 18px;
-            color: #6B7280; /* This is Tailwind's text-gray-500 */
-            font-variation-settings: 'wght' 313;
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="antialiased">
 
@@ -217,15 +17,7 @@
         <div id="top-right-menu">
             <div class="menu-content-wrapper">
                 <div class="menu-button">menu</div>
-                <svg class="sakura-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M50 40C41.1667 29.1667 31 22.5 20 25C17.5 45 32.5 45.8333 40 50C47.5 54.1667 62.5 65 60 85C70 77.5 70.8333 65.8333 60 60C50.8333 55 58.8333 50.8333 50 40Z" stroke="#333" stroke-width="4"/>
-                    <path d="M60 50C69.1667 41.1667 79.5 31 85 20C65 17.5 54.1667 32.5 50 40C45.8333 47.5 35 62.5 15 60C22.5 70 34.1667 70.8333 40 60C45 50.8333 50.8333 58.8333 60 50Z" stroke="#333" stroke-width="4"/>
-                    <path d="M50 60C41.1667 69.1667 31 79.5 20 85C17.5 65 32.5 54.1667 40 50C47.5 45.8333 62.5 35 60 15C70 22.5 70.8333 34.1667 60 40C50.8333 45 58.8333 50.8333 50 60Z" stroke="#333" stroke-width="4"/>
-                    <path d="M40 50C30.8333 58.8333 20.5 69.1667 15 80C35 82.5 45.8333 67.5 50 60C54.1667 52.5 65 37.5 85 40C77.5 30 65.8333 29.1667 60 40C55 49.1667 49.1667 41.1667 40 50Z" stroke="#333" stroke-width="4"/>
-                    <path d="M48 50L44 46" stroke="#333" stroke-width="4" stroke-linecap="round"/>
-                    <path d="M52 50L56 46" stroke="#333" stroke-width="4" stroke-linecap="round"/>
-                    <path d="M50 52L46 56" stroke="#333" stroke-width="4" stroke-linecap="round"/>
-                </svg>
+                <img src="images/lotus_icon.svg" alt="Menu" class="lotus-icon">
             </div>
             <div class="nav-links">
                 <a href="#about-me">about me</a>
@@ -365,7 +157,7 @@
 
             <!-- Charity Section -->
             <section id="volunteering" class="mb-20">
-                <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;volunteering/</h2>
+                <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;volunteering</h2>
                 <div class="card p-5">
                     <p>I believe in giving back to the community. Here, I'll share some of the charity activities and volunteer work I'm involved with.</p>
                 </div>
@@ -373,7 +165,7 @@
 
             <!-- Contact Section -->
             <section id="contact" class="text-center">
-                <h2 class="text-3xl md:text-4xl mb-4">>&nbsp;contact/</h2>
+                <h2 class="text-3xl md:text-4xl mb-4">>&nbsp;contact.me</h2>
                 <p class="text-lg">
                     I'm always open to discussion on interesting topics. Feel free to reach out.
                 </p>
@@ -389,67 +181,6 @@
             </p>
         </footer>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // JS for cute background icons
-            const wrapper = document.getElementById('background-wrapper');
-            if (wrapper) {
-                const icons = [
-                    `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4H8V8H4V4ZM8 8H12V12H8V8ZM12 12H16V16H12V12ZM16 8H20V12H16V8ZM12 4H16V8H12V4ZM8 0H12V4H8V0ZM16 4H20V8H16V4ZM8 12H12V16H8V12ZM4 8H8V12H4V8Z"/></svg>`,
-                    `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 13.5V7.914a1 1 0 00-.293-.707l-4.214-4.214A1 1 0 0014.786 3H5a1 1 0 00-1 1v16a1 1 0 001 1h8.5"/><path d="M16 3v5h5M7 14h6M7 18h4"/></svg>`,
-                    `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21a5 5 0 01-5-5V8a5 5 0 0110 0v8a5 5 0 01-5 5z"/><path d="M12 21V19M9 3h6M10 11h4M10 14h.01M14 14h.01"/></svg>`,
-                    `&#10022;`,
-                    `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 20.5v-7.5h4v7.5"/><path d="M12 13V8"/><path d="M10 8H4.5v12.5"/><path d="M14 8h5.5V20.5"/><path d="M12 8a2 2 0 100-4 2 2 0 000 4z"/></svg>`
-                ];
-                const numIcons = 20;
-                for (let i = 0; i < numIcons; i++) {
-                    const icon = document.createElement('div');
-                    icon.classList.add('bg-icon');
-                    icon.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-                    icon.style.left = `${Math.random() * 100}vw`;
-                    icon.style.animationDelay = `${Math.random() * 25}s`;
-                    icon.style.fontSize = `${1 + Math.random() * 1.5}rem`;
-                    wrapper.appendChild(icon);
-                }
-            }
-
-            // UPDATED JS for top right menu with precise hover
-            const menuArea = document.getElementById('menu-hover-area');
-            const topMenu = document.getElementById('top-right-menu');
-
-            if (menuArea && topMenu) {
-                let leaveTimeout;
-
-                // Open menu only when hovering the visible part
-                topMenu.addEventListener('mouseenter', () => {
-                    clearTimeout(leaveTimeout);
-                    menuArea.classList.add('menu-open');
-                });
-
-                // Close menu when leaving the entire hover area (with delay)
-                menuArea.addEventListener('mouseleave', () => {
-                    leaveTimeout = setTimeout(() => {
-                        menuArea.classList.remove('menu-open');
-                    }, 300);
-                });
-            }
-
-            // JS to fix page refresh and ensure smooth scrolling
-            const navLinks = document.querySelectorAll('.nav-links a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        targetSection.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
