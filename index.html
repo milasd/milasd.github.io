@@ -1,8 +1,455 @@
-<html>
-  <h2>Mila Soares de Oliveira de Souza</h2>
-  Bachelor in Information Systems @ Unirio <br><br><br>
-  This page is under construction, but I'll leave here some links to some of my musical performances (I sing in a band called FIFOS). All band members are all Comp Sci students/researchers<br>
-  <a href="https://photos.app.goo.gl/ae8ayaJs8N9CtMG6A" target="_blank">My band performing "Blue Bird" (Naruto opening)</a><br>
-  <a href="https://instagram.com/milattsia">Illustrations instagram</a>
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mila de Oliveira | AI/ML Research Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Work+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for the Hybrid theme */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background-color: #F4F4F4;
+            color: #333;
+            line-height: 1.7;
+            font-size: 17px;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Split heading styles */
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800; /* Extra-bold for main title */
+        }
+
+        h2, h3 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700; /* Standard bold for other headings */
+        }
+
+        /* Class for the header subtitles */
+        .header-subtitle {
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        /* Class for the thinner subtitle */
+        .subtitle-light {
+            font-weight: 300;
+        }
+
+        /* Blinking cursor effect */
+        .cursor::after {
+            content: '_';
+            animation: blink 1s step-start infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* Background Icons container */
+        #background-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-icon {
+            position: absolute;
+            color: #ddd;
+            font-size: 2rem;
+            animation: float 25s infinite linear;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(1); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        /* Simple link styling */
+        a {
+            color: #333;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a:hover {
+            background-color: #333;
+            color: #fafafa;
+            text-decoration: none;
+        }
+        
+        /* Card styling with black outline and shadow hover */
+        .card {
+            background-color: #fff;
+            border: 1px solid #333;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+           box-shadow: 5px 5px 0px #333;
+        }
+
+        /* --- Top Right Menu Styles --- */
+        #menu-hover-area {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 50;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        #top-right-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.75rem;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .menu-content-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .menu-button {
+            border: 1px solid #333;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            transition: opacity 0.3s ease;
+        }
+
+        .sakura-icon {
+            width: 36px;
+            height: 36px;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.75rem;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-15px);
+            transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+        }
+        
+        .nav-links a {
+            border: 1px solid #333;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            color: #333;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #333;
+            color: #fafafa;
+        }
+
+        #menu-hover-area.menu-open .menu-button {
+            opacity: 0.4;
+        }
+
+        #menu-hover-area.menu-open .nav-links {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        #menu-hover-area.menu-open .sakura-icon {
+            transform: rotate(630deg);
+        }
+        
+        /* Styles for header social icons */
+        .header-socials a svg {
+            width: 28px;
+            height: 28px;
+            color: #555;
+            transition: color 0.3s;
+        }
+        .header-socials a:hover svg {
+            color: #000;
+        }
+
+        /* Styles for the footer */
+        .footer-text {
+            font-family: 'Work Sans', sans-serif;
+            font-style: normal;
+            font-size: 18px;
+            color: #6B7280; /* This is Tailwind's text-gray-500 */
+            font-variation-settings: 'wght' 313;
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Menu HTML -->
+    <div id="menu-hover-area">
+        <div id="top-right-menu">
+            <div class="menu-content-wrapper">
+                <div class="menu-button">menu</div>
+                <svg class="sakura-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 40C41.1667 29.1667 31 22.5 20 25C17.5 45 32.5 45.8333 40 50C47.5 54.1667 62.5 65 60 85C70 77.5 70.8333 65.8333 60 60C50.8333 55 58.8333 50.8333 50 40Z" stroke="#333" stroke-width="4"/>
+                    <path d="M60 50C69.1667 41.1667 79.5 31 85 20C65 17.5 54.1667 32.5 50 40C45.8333 47.5 35 62.5 15 60C22.5 70 34.1667 70.8333 40 60C45 50.8333 50.8333 58.8333 60 50Z" stroke="#333" stroke-width="4"/>
+                    <path d="M50 60C41.1667 69.1667 31 79.5 20 85C17.5 65 32.5 54.1667 40 50C47.5 45.8333 62.5 35 60 15C70 22.5 70.8333 34.1667 60 40C50.8333 45 58.8333 50.8333 50 60Z" stroke="#333" stroke-width="4"/>
+                    <path d="M40 50C30.8333 58.8333 20.5 69.1667 15 80C35 82.5 45.8333 67.5 50 60C54.1667 52.5 65 37.5 85 40C77.5 30 65.8333 29.1667 60 40C55 49.1667 49.1667 41.1667 40 50Z" stroke="#333" stroke-width="4"/>
+                    <path d="M48 50L44 46" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M52 50L56 46" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M50 52L46 56" stroke="#333" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="nav-links">
+                <a href="#about-me">about me</a>
+                <a href="#industry-experience">industry</a>
+                <a href="#education">education</a>
+                <a href="#research">research</a>
+                <a href="#projects">projects</a>
+                <a href="#music-illustration">music & illustration</a>
+                <a href="#volunteering">volunteering</a>
+                <a href="#contact">contact</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="background-wrapper"></div>
+
+    <!-- Main container -->
+    <div class="container mx-auto max-w-4xl pt-24 px-5 pb-5 sm:px-8 sm:pb-8 relative z-10">
+
+        <!-- Header Section -->
+        <header class="text-center mb-20">
+            <h1 class="text-5xl md:text-7xl mb-2 cursor">Mila de Oliveira</h1>
+            <p class="text-lg md:text-xl text-gray-800 header-subtitle">AI/ML Research Software Engineer</p>
+            <p class="text-lg md:text-xl text-gray-600 subtitle-light header-subtitle">& singer & illustrator</p>
+            
+            <!-- Header Social Icons -->
+            <div class="flex justify-center items-center gap-4 mt-4 header-socials">
+                 <a href="#" target="_blank" title="GitHub">
+                    <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                 </a>
+                 <a href="#" target="_blank" title="LinkedIn">
+                    <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                 </a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+
+            <!-- About Section -->
+            <section id="about-me" class="mb-20">
+                <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;about.me</h2>
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <!-- Profile Picture -->
+                    <div class="w-40 h-40 md:w-48 md:h-48 flex-shrink-0">
+                        <img src="https://placehold.co/400x400/333333/fafafa?text=" 
+                             alt="A picture of me, Mila!" 
+                             class="w-full h-full object-cover border-2 border-black p-1">
+                    </div>
+                    <div class="text-lg space-y-4">
+                        <p><b>This page is under construction! The text provided here is mostly for test. :) </b></b></p>
+                        <p>
+                            Hello! I'm Mila, a passionate AI/ML Research Software Engineer with a love for creating elegant and efficient solutions. My journey into code started with a fascination for bringing ideas to life on a screen.
+                        </p>
+                        <p>
+                            When I'm not building software, I'm usually singing, sketching, or exploring the intersection of technology and art.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Industry Experience Section -->
+            <section id="industry-experience" class="mb-20">
+                <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;industry_experience/</h2>
+                <p>The text here is ficticious and serves as a placeholder!</p>
+                <div class="space-y-6">
+                    <div class="card p-5">
+                        <h3 class="text-xl">AI/ML Software Engineer, Apple</h3>
+                        <p class="text-base text-gray-500">2021 - Present</p>
+                        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a magna urna. Pellentesque fermentum odio ex, nec volutpat metus fermentum at. Aliquam felis purus, sagittis nec maximus egestas, molestie id lacus. Sed volutpat malesuada pellentesque. Donec nec nisl pretium, imperdiet massa sed, bibendum turpis. </p>
+                    </div>
+                    <div class="card p-5">
+                        <h3 class="text-xl">Research Software Engineer, Microsoft Research</h3>
+                        <p class="text-base text-gray-500">2018 - 2021</p>
+                        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a magna urna. Pellentesque fermentum odio ex, nec volutpat metus fermentum at. Aliquam felis purus, sagittis nec maximus egestas...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section id="education" class="mb-20">
+                <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;education/</h2>
+                <div class="space-y-6">
+                    <div class="card p-5">
+                        <h3 class="text-xl">Master of Science in Electrical Engineering</h3>
+                        <p class="text-base font-bold">Name of University</p>
+                        <p class="mt-2"><span class="font-bold">Thesis:</span> [Your Thesis Title Here]</p>
+                        <p><span class="font-bold">Advisors:</span> [Your Advisor's Name(s) Here]</p>
+                        <p class="mt-2"><a href="#" target="_blank">Read Dissertation &rarr;</a></p>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">keyword</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">research</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">AI/ML</span>
+                        </div>
+                    </div>
+                    <div class="card p-5">
+                        <h3 class="text-xl">Bachelor of Science in [Your Field]</h3>
+                        <p class="text-base font-bold">[Your University Name]</p>
+                        <p class="mt-2">Graduated [Year]</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Section -->
+            <section id="research" class="mb-20">
+                <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;research/</h2>
+                <div class="space-y-6">
+                    <div class="card p-5">
+                        <h3 class="text-xl">[Research Title] <span class="text-base font-normal text-gray-500">[Year]</span></h3>
+                        <p><span class="font-bold">Advisors:</span> [Advisor Names Here]</p>
+                        <p class="mt-2">[Brief summary of the research project, its goals, and key findings. Explain the core problem and your approach to solving it.]</p>
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">keyword</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">another keyword</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="mb-20">
+                <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;projects/</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card p-6"><h3 class="text-xl mb-2">Project One</h3><p class="mb-4 text-gray-600">A brief description of this awesome project. It solves a real-world problem with a clean and intuitive user interface.</p><a href="#" target="_blank" class="font-bold">View on GitHub &rarr;</a></div>
+                    <div class="card p-6"><h3 class="text-xl mb-2">Project Two</h3><p class="mb-4 text-gray-600">Details about another one of my creations. This one focuses on performance and scalability, built with modern technologies.</p><a href="#" target="_blank" class="font-bold">Live Demo &rarr;</a></div>
+                </div>
+            </section>
+
+            <!-- Hobbies Section -->
+            <section id="music-illustration" class="mb-20">
+                <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;music & illustration</h2>
+                <div class="card p-5">
+                    <p>Beyond my professional and academic work, I have a passion for singing and illustration. These creative outlets provide a wonderful balance to my technical pursuits and allow me to explore different forms of expression.</p>
+                </div>
+            </section>
+
+            <!-- Charity Section -->
+            <section id="volunteering" class="mb-20">
+                <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;volunteering/</h2>
+                <div class="card p-5">
+                    <p>I believe in giving back to the community. Here, I'll share some of the charity activities and volunteer work I'm involved with.</p>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="text-center">
+                <h2 class="text-3xl md:text-4xl mb-4">>&nbsp;contact/</h2>
+                <p class="text-lg">
+                    I'm always open to discussion on interesting topics. Feel free to reach out.
+                </p>
+                <a href="mailto:your.email@example.com" class="text-xl inline-block mt-2">your.email@example.com</a>
+            </section>
+
+        </main>
+
+        <!-- UPDATED Footer -->
+        <footer class="text-center mt-20 pt-8 border-t border-gray-300">
+            <p class="footer-text">
+                mila de oliveira &copy; 2025
+            </p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // JS for cute background icons
+            const wrapper = document.getElementById('background-wrapper');
+            if (wrapper) {
+                const icons = [
+                    `<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4H8V8H4V4ZM8 8H12V12H8V8ZM12 12H16V16H12V12ZM16 8H20V12H16V8ZM12 4H16V8H12V4ZM8 0H12V4H8V0ZM16 4H20V8H16V4ZM8 12H12V16H8V12ZM4 8H8V12H4V8Z"/></svg>`,
+                    `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 13.5V7.914a1 1 0 00-.293-.707l-4.214-4.214A1 1 0 0014.786 3H5a1 1 0 00-1 1v16a1 1 0 001 1h8.5"/><path d="M16 3v5h5M7 14h6M7 18h4"/></svg>`,
+                    `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21a5 5 0 01-5-5V8a5 5 0 0110 0v8a5 5 0 01-5 5z"/><path d="M12 21V19M9 3h6M10 11h4M10 14h.01M14 14h.01"/></svg>`,
+                    `&#10022;`,
+                    `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 20.5v-7.5h4v7.5"/><path d="M12 13V8"/><path d="M10 8H4.5v12.5"/><path d="M14 8h5.5V20.5"/><path d="M12 8a2 2 0 100-4 2 2 0 000 4z"/></svg>`
+                ];
+                const numIcons = 20;
+                for (let i = 0; i < numIcons; i++) {
+                    const icon = document.createElement('div');
+                    icon.classList.add('bg-icon');
+                    icon.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+                    icon.style.left = `${Math.random() * 100}vw`;
+                    icon.style.animationDelay = `${Math.random() * 25}s`;
+                    icon.style.fontSize = `${1 + Math.random() * 1.5}rem`;
+                    wrapper.appendChild(icon);
+                }
+            }
+
+            // UPDATED JS for top right menu with precise hover
+            const menuArea = document.getElementById('menu-hover-area');
+            const topMenu = document.getElementById('top-right-menu');
+
+            if (menuArea && topMenu) {
+                let leaveTimeout;
+
+                // Open menu only when hovering the visible part
+                topMenu.addEventListener('mouseenter', () => {
+                    clearTimeout(leaveTimeout);
+                    menuArea.classList.add('menu-open');
+                });
+
+                // Close menu when leaving the entire hover area (with delay)
+                menuArea.addEventListener('mouseleave', () => {
+                    leaveTimeout = setTimeout(() => {
+                        menuArea.classList.remove('menu-open');
+                    }, 300);
+                });
+            }
+
+            // JS to fix page refresh and ensure smooth scrolling
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>
