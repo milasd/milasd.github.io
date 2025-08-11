@@ -8,6 +8,11 @@ const CONFIG = {
     modal: {
         fadeInDelay: 10,
         closeAnimationDuration: 300
+    },
+    swipe: {
+        minDistance: 50,
+        maxTime: 300,
+        restraintDistance: 100
     }
 };
 
@@ -20,6 +25,51 @@ let modalState = {
     isSingleImage: false 
 };
 let abstractState = { isExpanded: false };
+
+// Swipe Detection Utility
+function addSwipeDetection(element, onSwipeLeft, onSwipeRight) {
+    if (!('ontouchstart' in window)) return;
+
+    let startX, startY, startTime;
+    let isMoving = false;
+
+    element.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        startX = touch.clientX;
+        startY = touch.clientY;
+        startTime = new Date().getTime();
+        isMoving = false;
+    }, { passive: true });
+
+    element.addEventListener('touchmove', (e) => {
+        isMoving = true;
+    }, { passive: true });
+
+    element.addEventListener('touchend', (e) => {
+        if (!isMoving) return;
+
+        const touch = e.changedTouches[0];
+        const endX = touch.clientX;
+        const endY = touch.clientY;
+        const endTime = new Date().getTime();
+
+        const distanceX = endX - startX;
+        const distanceY = endY - startY;
+        const elapsedTime = endTime - startTime;
+
+        // Check if it's a valid swipe
+        if (elapsedTime <= CONFIG.swipe.maxTime &&
+            Math.abs(distanceX) >= CONFIG.swipe.minDistance &&
+            Math.abs(distanceY) <= CONFIG.swipe.restraintDistance) {
+            
+            if (distanceX > 0) {
+                onSwipeRight && onSwipeRight();
+            } else {
+                onSwipeLeft && onSwipeLeft();
+            }
+        }
+    }, { passive: true });
+}
 
 // Background Icons
 function initBackgroundIcons() {
@@ -229,9 +279,20 @@ function initVolunteerGalleries() {
         let currentIndex = 0;
 
         function showImage(index) {
-            image.src = images[index].src;
-            image.alt = images[index].alt;
-            currentIndex = index;
+            // Fade out current image
+            image.style.opacity = '0';
+            
+            // Wait for fade out, then change image and fade in
+            setTimeout(() => {
+                image.src = images[index].src;
+                image.alt = images[index].alt;
+                currentIndex = index;
+                
+                // Fade in new image
+                setTimeout(() => {
+                    image.style.opacity = '1';
+                }, 50);
+            }, 200);
         }
 
         function nextImage() {
@@ -261,6 +322,9 @@ function initVolunteerGalleries() {
             }
             openGalleryModal(images, currentIndex);
         });
+
+        // Add swipe detection for mobile
+        addSwipeDetection(imageWrapper, nextImage, prevImage);
     });
 }
 
@@ -391,6 +455,12 @@ function initModalSystem() {
                 break;
         }
     });
+
+    // Add swipe detection to modal for mobile navigation
+    addSwipeDetection(modal, 
+        () => navigateModal('next'),  // Swipe left = next
+        () => navigateModal('prev')   // Swipe right = previous
+    );
 
     // Expose global functions
     window.openImageModal = openImageModal;
