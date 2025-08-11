@@ -95,6 +95,67 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* Mobile font size adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px !important;
+        line-height: 1.5;
+    }
+    
+    /* Override Tailwind text classes for mobile */
+    .text-lg {
+        font-size: 15px !important;
+    }
+    
+    .text-xl {
+        font-size: 16px !important;
+    }
+    
+    .text-base {
+        font-size: 14px !important;
+    }
+    
+    /* Adjust heading sizes for mobile */
+    h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Adjust paragraph text everywhere */
+    p {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Adjust card text */
+    .card p {
+        font-size: 13px !important;
+    }
+    
+    /* Header subtitle sizes */
+    .header-subtitle {
+        font-size: 0.9rem !important;
+    }
+    
+    /* About me section specific */
+    #about-me p {
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* Smaller text elements */
+    .text-sm {
+        font-size: 12px !important;
+    }
+    
+    .text-xs {
+        font-size: 11px !important;
+    }
+}
+
 /* Split heading styles */
 h1 {
     font-family: 'Syne', sans-serif;
