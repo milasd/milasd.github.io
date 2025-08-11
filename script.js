@@ -57,23 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Hover functionality for desktop (only on non-touch devices)
-        if (window.matchMedia && !window.matchMedia('(hover: none)').matches) {
-            topMenu.addEventListener('mouseenter', () => {
-                clearTimeout(leaveTimeout);
-                if (!isMenuOpen) {
-                    menuArea.classList.add('menu-open');
-                }
-            });
-
-            menuArea.addEventListener('mouseleave', () => {
-                leaveTimeout = setTimeout(() => {
-                    if (!isMenuOpen) {
-                        menuArea.classList.remove('menu-open');
-                    }
-                }, 300);
-            });
-        }
+        // Hover functionality removed - menu now only opens on click
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
@@ -145,6 +129,284 @@ document.addEventListener('DOMContentLoaded', () => {
             card.addEventListener('touchcancel', () => {
                 card.classList.remove('touch-highlight');
             });
+        });
+    }
+
+    // Make project cards clickable
+    const projectCards = document.querySelectorAll('.card[data-url]');
+    projectCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Don't trigger if clicking on the actual link
+            if (e.target.tagName === 'A') return;
+            
+            const url = card.getAttribute('data-url');
+            if (url) {
+                window.open(url, '_blank');
+            }
+        });
+    });
+
+    // Abstract toggle functionality
+    const abstractToggle = document.querySelector('.abstract-toggle');
+    const abstractContainer = document.querySelector('.abstract-container');
+    const abstractPreview = document.querySelector('.abstract-preview');
+    const abstractFull = document.querySelector('.abstract-full');
+
+    if (abstractToggle && abstractContainer && abstractPreview && abstractFull) {
+        let isExpanded = false;
+
+        const toggleAbstract = () => {
+            isExpanded = !isExpanded;
+            
+            if (isExpanded) {
+                abstractContainer.classList.add('expanded');
+                abstractPreview.style.display = 'none';
+                abstractFull.style.display = 'block';
+                abstractToggle.textContent = 'Hide Full Abstract';
+            } else {
+                abstractContainer.classList.remove('expanded');
+                abstractPreview.style.display = 'block';
+                abstractFull.style.display = 'none';
+                abstractToggle.textContent = 'Read Full Abstract';
+            }
+        };
+
+        // Toggle on button click
+        abstractToggle.addEventListener('click', toggleAbstract);
+        
+        // Toggle on preview text click
+        abstractPreview.addEventListener('click', toggleAbstract);
+        
+        // Toggle on full text click
+        abstractFull.addEventListener('click', toggleAbstract);
+    }
+
+    // Volunteer gallery functionality
+    const volunteerGalleries = document.querySelectorAll('.volunteer-gallery');
+    
+    volunteerGalleries.forEach(gallery => {
+        const galleryType = gallery.getAttribute('data-gallery');
+        const imageWrapper = gallery.querySelector('.volunteer-image-wrapper');
+        const image = gallery.querySelector('.volunteer-image');
+        const prevBtn = gallery.querySelector('.gallery-prev');
+        const nextBtn = gallery.querySelector('.gallery-next');
+        
+        // Define image arrays for each gallery
+        const imageArrays = {
+            'pre-tecnico': [
+                { src: 'images/volunteering/pre_cruzada/precr1.jpg', alt: 'Teaching at Pre-técnico da Cruzada' },
+                { src: 'images/volunteering/pre_cruzada/precr2.jpg', alt: 'Mathematics class at Pre-técnico da Cruzada' }
+            ],
+            'sopao': [
+                { src: 'images/volunteering/sopao/sopb1.jpeg', alt: 'Sopão do Bem volunteering' },
+                { src: 'images/volunteering/sopao/sopb2.jpeg', alt: 'Food preparation for homeless' },
+                { src: 'images/volunteering/sopao/sopb3.jpeg', alt: 'Distribution of meals at Sopão do Bem' }
+            ]
+        };
+        
+        const images = imageArrays[galleryType] || [];
+        let currentIndex = 0;
+        
+        // Show arrows only if there are multiple images
+        if (images.length > 1) {
+            gallery.setAttribute('data-count', 'multiple');
+            prevBtn.classList.remove('hidden');
+            nextBtn.classList.remove('hidden');
+        }
+        
+        // Navigation functions
+        const showImage = (index) => {
+            if (images.length > 0) {
+                image.src = images[index].src;
+                image.alt = images[index].alt;
+                currentIndex = index;
+            }
+        };
+        
+        const nextImage = () => {
+            if (images.length > 1) {
+                const nextIndex = (currentIndex + 1) % images.length;
+                showImage(nextIndex);
+            }
+        };
+        
+        const prevImage = () => {
+            if (images.length > 1) {
+                const prevIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(prevIndex);
+            }
+        };
+        
+        // Event listeners
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextImage();
+            });
+        }
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevImage();
+            });
+        }
+        
+        // Make image clickable to open in modal
+        if (imageWrapper) {
+            imageWrapper.addEventListener('click', (e) => {
+                // Prevent gallery navigation when clicking on image
+                if (e.target === prevBtn || e.target === nextBtn || 
+                    prevBtn.contains(e.target) || nextBtn.contains(e.target)) {
+                    return;
+                }
+                
+                // Open gallery in modal with navigation
+                if (images.length > 0) {
+                    openGalleryModal(images, currentIndex);
+                }
+            });
+        }
+    });
+
+    // Shared image modal functionality
+    const artworkModal = document.getElementById('artwork-modal');
+    const modalArtwork = document.getElementById('modal-artwork');
+    const closeModalBtn = document.getElementById('close-modal');
+    const prevBtn = document.getElementById('prev-artwork');
+    const nextBtn = document.getElementById('next-artwork');
+    const artworkItems = document.querySelectorAll('.artwork-item');
+    
+    let currentArtworkIndex = 0;
+    let currentImageSources = [];
+    let isSingleImageMode = false;
+    
+    // Function to open any image in modal
+    window.openImageModal = (imageSrc) => {
+        currentImageSources = [imageSrc];
+        currentArtworkIndex = 0;
+        isSingleImageMode = true;
+        modalArtwork.src = imageSrc;
+        modalArtwork.style.opacity = '0';
+        artworkModal.classList.remove('hidden', 'closing');
+        artworkModal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        
+        setTimeout(() => {
+            modalArtwork.style.opacity = '1';
+        }, 10);
+    };
+    
+    // Function to open gallery with navigation in modal
+    window.openGalleryModal = (images, startIndex) => {
+        currentImageSources = images.map(img => img.src);
+        currentArtworkIndex = startIndex;
+        isSingleImageMode = false;
+        modalArtwork.src = images[startIndex].src;
+        modalArtwork.style.opacity = '0';
+        artworkModal.classList.remove('hidden', 'closing');
+        artworkModal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        
+        setTimeout(() => {
+            modalArtwork.style.opacity = '1';
+        }, 10);
+    };
+    
+    const artworkSources = Array.from(artworkItems).map(item => item.getAttribute('data-artwork'));
+
+    if (artworkModal && modalArtwork && closeModalBtn && prevBtn && nextBtn) {
+        // Function to update modal artwork
+        const updateModalArtwork = (index) => {
+            modalArtwork.src = currentImageSources[index];
+            currentArtworkIndex = index;
+        };
+
+        // Function to show next artwork
+        const showNextArtwork = () => {
+            if (isSingleImageMode) return; // No navigation for single images
+            const sources = currentImageSources;
+            const nextIndex = (currentArtworkIndex + 1) % sources.length;
+            updateModalArtwork(nextIndex);
+        };
+
+        // Function to show previous artwork
+        const showPrevArtwork = () => {
+            if (isSingleImageMode) return; // No navigation for single images
+            const sources = currentImageSources;
+            const prevIndex = (currentArtworkIndex - 1 + sources.length) % sources.length;
+            updateModalArtwork(prevIndex);
+        };
+
+        // Function to close modal with smooth animation
+        const closeModal = () => {
+            artworkModal.classList.add('closing');
+            setTimeout(() => {
+                artworkModal.classList.add('hidden');
+                artworkModal.classList.remove('flex', 'closing');
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            }, 300); // Match the animation duration
+        };
+
+        // Open modal when clicking on artwork
+        artworkItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentImageSources = artworkSources;
+                currentArtworkIndex = index;
+                isSingleImageMode = false;
+                modalArtwork.src = artworkSources[index];
+                modalArtwork.style.opacity = '0';
+                artworkModal.classList.remove('hidden', 'closing');
+                artworkModal.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                
+                // Trigger fade-in after modal is displayed
+                setTimeout(() => {
+                    modalArtwork.style.opacity = '1';
+                }, 10);
+            });
+        });
+
+        // Navigation button events
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showNextArtwork();
+        });
+
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showPrevArtwork();
+        });
+
+        // Close modal when clicking the close button
+        closeModalBtn.addEventListener('click', () => {
+            closeModal();
+        });
+
+        // Close modal when clicking outside the image
+        artworkModal.addEventListener('click', (e) => {
+            if (e.target === artworkModal) {
+                closeModal();
+            }
+        });
+
+        // Keyboard navigation and close modal
+        document.addEventListener('keydown', (e) => {
+            if (!artworkModal.classList.contains('hidden')) {
+                switch(e.key) {
+                    case 'Escape':
+                        closeModal();
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        showNextArtwork();
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        showPrevArtwork();
+                        break;
+                }
+            }
         });
     }
 });

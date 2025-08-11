@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@300;400;500&family=Work+Sans:wght@100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="antialiased">
 
@@ -42,58 +42,107 @@
         <header class="text-center mb-20">
             <h1 class="text-5xl md:text-7xl mb-2 cursor">Mila de Oliveira</h1>
             <p class="text-lg md:text-xl text-gray-800 header-subtitle">AI/ML Research Software Engineer</p>
-            <p class="text-lg md:text-xl text-gray-600 subtitle-light header-subtitle">& singer & illustrator</p>
+            <p class="text-lg md:text-xl text-gray-600 subtitle-light header-subtitle">& singing & illustration</p>
             
             <!-- Header Social Icons -->
             <div class="flex justify-center items-center gap-4 mt-4 header-socials">
-                 <a href="#" target="_blank" title="GitHub">
+                 <a href="https://github.com/milasd" target="_blank" title="GitHub">
                     <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
                  </a>
-                 <a href="#" target="_blank" title="LinkedIn">
+                 <a href="https://linkedin.com/in/milasd" target="_blank" title="LinkedIn">
                     <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                  </a>
             </div>
         </header>
 
-        <!-- Main Content -->
-        <main>
+    </div>
 
-            <!-- About Section -->
-            <section id="about-me" class="mb-20">
-                <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;about.me</h2>
-                <div class="flex flex-col md:flex-row items-center gap-10">
-                    <!-- Profile Picture -->
-                    <div class="w-40 h-40 md:w-48 md:h-48 flex-shrink-0">
-                        <img src="https://placehold.co/400x400/333333/fafafa?text=" 
-                             alt="A picture of me, Mila!" 
-                             class="w-full h-full object-cover border-2 border-black p-1">
-                    </div>
-                    <div class="text-lg space-y-4">
-                        <p><b>This page is under construction! The text provided here is mostly for test. :) </b></b></p>
-                        <p>
-                            Hello! I'm Mila, a passionate AI/ML Research Software Engineer with a love for creating elegant and efficient solutions. My journey into code started with a fascination for bringing ideas to life on a screen.
+    <!-- About Section with its own 5xl container -->
+    <div class="container mx-auto max-w-5xl px-5 pb-5 sm:px-8 sm:pb-8 relative z-10">
+        <section id="about-me" class="mb-20">
+            <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;about.me</h2>
+            <div class="text-lg">
+                <!-- First section: Picture with first two paragraphs -->
+                <div class="flex flex-col md:flex-row items-start gap-6 mb-6">
+                    <img src="images/p5.jpg" 
+                         alt="A picture of me, Mila" 
+                         class="w-56 h-56 md:w-64 md:h-64 object-cover border-2 border-black p-1 flex-shrink-0">
+                    
+                    <div class="flex-1">
+                        <p class="mb-4">
+                            Hello! I'm <b>Mila</b>, an <i>AI/ML Research Software Engineer</i> and <i>Master of Science in Electrical Engineering</i>. I have worked in the industry implementing research ideas and applications efficiently as software, both for internal use and user-facing production code.
                         </p>
-                        <p>
-                            When I'm not building software, I'm usually singing, sketching, or exploring the intersection of technology and art.
+                        <p class="mb-4">
+                            In the past years, my work has been focused in <b>Machine Learning applications</b> in Computer Vision (object detection, at Microsoft Research) and, more recently, Language Models (at Apple). 
                         </p>
                     </div>
                 </div>
-            </section>
+                
+                <!-- Remaining paragraphs below the picture -->
+                <div class="space-y-4">
+                    <p>
+                        My personal instinct draws me to technical projects with the potential for meaningful social impact. In my MSc. research, I developed an ML-based system to support Brazil's Public Health Agents in tackling dengue — one of the country's most pressing health threats<a href="https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/boletins/epidemiologicos/edicoes/2024/boletim-epidemiologico-volume-55-no-11.pdf" target="_blank"><sup><u>1</u></sup></a>, with over 6.5M cases and 6.3k deaths in 2024<a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/aedes-aegypti/monitoramento-das-arboviroses" target="_blank"><sup><u>2</u></sup></a> —, automating the discovery of Aedes aegypti breeding sites using real-time object detection with drones.
+                    </p> 
+                    <p>
+                        My recent personal projects involve exploring <b>Lean (proof assistant)</b> for formal verification in algorithms, and experimenting with <b>ARM64 Assembly</b> (I particularly enjoy "dealing with computers" at lower levels).
+                    </p>
+                    <p>
+                        I sing as a soprano and play the shamisen (self-taught); Music is my way of processing the external world. I sang in the Little St. Mary's Church Choir in Cambridge (UK), and currently sing in the Cathedral of Rio de Janeiro Choir in Brazil. 
+                    </p>
+                    <p>
+                        I teach Mathematics alongside friends at a charity school for slum residents. Every two weeks, I also join the preparation and distribution of fresh meals to those experiencing homeless in Rio de Janeiro. It's important to me that I can give back to the world every good thing I had the opportunity to experience, after all :) 
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Main container for other sections with 4xl max-width -->
+    <div class="container mx-auto max-w-4xl px-5 pb-5 sm:px-8 sm:pb-8 relative z-10">
+        <!-- Main Content -->
+        <main>
             
             <!-- Industry Experience Section -->
             <section id="industry-experience" class="mb-20">
                 <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;industry_experience/</h2>
-                <p>The text here is ficticious and serves as a placeholder!</p>
                 <div class="space-y-6">
                     <div class="card p-5">
-                        <h3 class="text-xl">AI/ML Software Engineer, Apple</h3>
-                        <p class="text-base text-gray-500">2021 - Present</p>
-                        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a magna urna. Pellentesque fermentum odio ex, nec volutpat metus fermentum at. Aliquam felis purus, sagittis nec maximus egestas, molestie id lacus. Sed volutpat malesuada pellentesque. Donec nec nisl pretium, imperdiet massa sed, bibendum turpis. </p>
+                        <h3 class="text-xl">AI/ML Software Engineer (Placement Year) @ <b>Apple</b></h3>
+                        <p class="text-base font-bold">Siri Understanding – Natural Language Parsing & Tools</p>
+                        <p class="text-base text-gray-500">Aug 2023 - Aug 2024 | Cambridge, UK</p>
+                        <p class="mt-2">I worked on Language Models Engineering and Operations for Apple Intelligence's current and next iteration of Siri.</p>
+                        <p class="mt-2">Designed, coded and deployed to production both internal and user-facing projects in language models inference, evaluation, and real-time Siri response correction, participating in some architectural decisions for the new releases. Authored CLI tools for large datasets evaluation <i>(Technical specifics under NDA)</i>.</p>
+                    
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Natural Language Processing (NLP)</span>
+                        </div>
                     </div>
+                    
                     <div class="card p-5">
-                        <h3 class="text-xl">Research Software Engineer, Microsoft Research</h3>
-                        <p class="text-base text-gray-500">2018 - 2021</p>
-                        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a magna urna. Pellentesque fermentum odio ex, nec volutpat metus fermentum at. Aliquam felis purus, sagittis nec maximus egestas...</p>
+                        <h3 class="text-xl">Research Software Engineer Intern @ <b>Microsoft Research</b></h3>
+                        <p class="text-base font-bold">Computer Vision for Safety Surveillance Systems</p>
+                        <p class="text-base text-gray-500">Apr 2018 - Oct 2019 | Rio de Janeiro, BR</p>
+                        <p class="mt-2">I worked in the real-time object detection project to detect falls and hazardous events, enhancing safety for patients in hospitals<a href="https://news.microsoft.com/pt-br/microsoft-faz-parceria-com-hospital-9-de-julho-para-implementar-tecnologia-na-saude/" target="_blank"><sup><u>3</u></sup></a> and for laborers in dangerous industrial environments, potentially saving their lives.</p>
+                        <p class="mt-2">Developed and deployed to production a multi-module Python service for real-time object detection with surveillance cameras, featuring customizable settings and configurations (used daily for hundreds of cameras). Also developed ML pipelines, including data preprocessing and annotation workflows, automating input data processing for neural network training. Managed cloud infrastructure on Azure for data storage and migration, and created a full-stack application to configure and update new detection settings.</p>                       
+
+                        <div class="mt-3 flex flex-wrap gap-2">
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Computer Vision</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Object Detection</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Python</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">C++</span>
+                        </div>
+                    </div>
+                    
+                    <div class="card p-5">
+                        <h3 class="text-xl">iOS Software Development Intern @ <b>Apple Developer Academy</b></h3>
+                        <p class="text-base text-gray-500">Jan 2016 - 2017 | Rio de Janeiro, BR</p>
+                        <p class="mt-2">Architectural design, coding w/ Swift and visual identity of several iOS & tvOS apps. UI and UX prototyping using Sketch, AutoLayout and inVision.</p>
+                    </div>
+                    
+                    <div class="card p-5">
+                        <h3 class="text-xl">Software Development Intern @ <b>VTEX e-commerce</b></h3>
+                        <p class="text-base text-gray-500">Winter 2015 | Rio de Janeiro, BR</p>
+                        <p class="mt-2">Brainstorming, planning and development of the first iteration of the Wishlist web application (React.JS + Flux) targeting VTEX platform online stores.</p>
                     </div>
                 </div>
             </section>
@@ -103,22 +152,60 @@
                 <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;education/</h2>
                 <div class="space-y-6">
                     <div class="card p-5">
-                        <h3 class="text-xl">Master of Science in Electrical Engineering</h3>
-                        <p class="text-base font-bold">Name of University</p>
-                        <p class="mt-2"><span class="font-bold">Thesis:</span> [Your Thesis Title Here]</p>
-                        <p><span class="font-bold">Advisors:</span> [Your Advisor's Name(s) Here]</p>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl">Master of Science (Research-based), Electrical Engineering</h3>
+                            <span class="text-sm md:text-base text-gray-400 font-light text-right">2021 - 2025</span>
+                        </div>
+                        <p class="text-base font-bold">Universidade Federal do Rio de Janeiro</p>
+                        <p class="mt-2"><span class="font-bold">Dissertation:</span> “Aedes aegypti breeding sites detection with Computer Vision techniques” </p>
+                        <p class="text-15px text-gray-600 font-light"><span class="font-bold">Advisors:</span> <i>Eduardo A. B. da Silva (UFRJ/COPPE), Sergio L. Netto (UFRJ/COPPE)</i></p>
                         <p class="mt-2"><a href="#" target="_blank">Read Dissertation &rarr;</a></p>
+
+                        <div class="mt-3 text-sm">
+                            <div class="abstract-container">
+                                <p class="abstract-preview text-sm cursor-pointer">
+                                    Arboviral diseases transmitted by the Aedes aegypti mosquito – such as chikungunya, Zika, and, most notably, dengue – are among the foremost public health concerns in Brazil. Hospital admissions related to dengue saw a 300% increase in 2024. Considering that the primary prophylactic measure is the eradication of the mosquito and its breeding sites, computer vision techniques could be leveraged to assist in detecting objects such as tires and water tanks. This study refines existing tire detection methodologies through two experiments using the MBG-v2 dataset. The first involves slicing frames into 640 × 640 pixel samples, with an overlap equivalent to the average tire size (42 pixels), as to minimise instances of object slicing. We investigate the impact of discarding or retaining sliced tires based on their proportional area relative to the original object. The second experiment entails training and validating the real-time object detection model YOLOv8s (11.2M parameters), providing sliced  images as the dataset, distributed across 5 distinct folds.
+                                </p>
+                                <p class="abstract-full text-sm" style="display: none;">
+                                    Arboviral diseases transmitted by the Aedes aegypti mosquito – such as chikungunya, Zika, and, most notably, dengue – are among the foremost public health concerns in Brazil. Hospital admissions related to dengue saw a 300% increase in 2024. Considering that the primary prophylactic measure is the eradication of the mosquito and its breeding sites, computer vision techniques could be leveraged to assist in detecting objects such as tires and water tanks. This study refines existing tire detection methodologies through two experiments using the MBG-v2 dataset. The first involves slicing frames into 640 × 640 pixel samples, with an overlap equivalent to the average tire size (42 pixels), as to minimise instances of object slicing. We investigate the impact of discarding or retaining sliced tires based on their proportional area relative to the original object. The second experiment entails training and validating the real-time object detection model YOLOv8s (11.2M parameters), providing sliced images as the dataset, distributed across 5 distinct folds. Evaluation relies on the F1 metric to assess both detection performance per fold and the impact of introducing sliced objects. The slicing process increased the number of annotated tires from 3,323 to a minimum of 4,182 and a maximum of 5,049, depending on the proportion of sliced objects. We achieved an average F1 score of 63%, a substantial improvement compared to the 16% F1 reported in other experiments. The inclusion or exclusion – whether partial or complete – of sliced objects resulted in variations on the F1 depending on their proportion and the fold, yet no significant impact was observed. The results favour the applicability of the methodologies for future experiments on the MBG-v2 dataset and real-time tire detection.
+                                </p>
+                            </div>
+                            <div class="abstract-toggle-container">
+                                <button class="abstract-toggle text-gray-600 hover:text-gray-800 font-medium">Read Full Abstract</button>
+                            </div>
+                        </div>
+                        <p class="mt-2"><a href="#" target="_blank">GitHub codebase &rarr;</a></p>
                         <div class="mt-3 flex flex-wrap gap-2">
-                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">keyword</span>
-                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">research</span>
+                            
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Computer Vision</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Object detection</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Health</span>
                             <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">AI/ML</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Deep learning</span>
                         </div>
                     </div>
                     <div class="card p-5">
-                        <h3 class="text-xl">Bachelor of Science in [Your Field]</h3>
-                        <p class="text-base font-bold">[Your University Name]</p>
-                        <p class="mt-2">Graduated [Year]</p>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl">Bachelor of Science, Information Systems</h3>
+                            <span class="text-sm md:text-base text-gray-400 font-light text-right">2016 - 2020</span>
+                        </div>
+                            <p class="text-base font-bold">Universidade Federal do Estado do Rio de Janeiro</p>
+                            <p class="mt-2"><span class="font-bold">Graduation thesis:</span> “Deep learning models for tempo estimation in music”</p>
+                            <p class="text-15px text-gray-600 font-light"><span class="font-bold">Advisors:</span> <i>Pedro N. Moura (Unirio), Jean-Pierre Briot (CNRS/LIP6/Sorbonne)</i> </p>
+                            <div class="mt-3 flex flex-wrap gap-2">
+                                <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Music Information Retrieval (MIR)</span>
+                                <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Deep learning</span>
+                                <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Signal processing</span>
                     </div>
+                    <p class="mt-4 text-sm">I was the <i>Teaching Assistant</i> of <i>Data Structures II</i> (& Analysis of Algorithms) in undergrad.</p>
+                </div>
+                <div class="card p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-xl">Chemical Engineering (unfinished)</h3>
+                        <span class="text-sm md:text-base text-gray-400 font-light text-right">2013 - 2015</span>
+                    </div>
+                    <p class="text-base font-bold">Universidade Federal do Rio de Janeiro</p>
+                    <p class="mt-2 text-sm">I studied Chemical Engineering for 1.5 year before pivoting to Information Systems. :)</p>
                 </div>
             </section>
 
@@ -127,12 +214,27 @@
                 <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;research/</h2>
                 <div class="space-y-6">
                     <div class="card p-5">
-                        <h3 class="text-xl">[Research Title] <span class="text-base font-normal text-gray-500">[Year]</span></h3>
-                        <p><span class="font-bold">Advisors:</span> [Advisor Names Here]</p>
-                        <p class="mt-2">[Brief summary of the research project, its goals, and key findings. Explain the core problem and your approach to solving it.]</p>
+                        <h3 class="text-xl">Automatic detection of Aedes aegypti breeding sites <span class="text-base font-normal text-gray-500">[2021-ongoing]</span></h3>
+                        <p class="text-15px text-gray-600 font-light"><span class="font-bold">Advisors:</span> <i>Eduardo A. B. da Silva (UFRJ/COPPE), Sergio L. Netto (UFRJ/COPPE)</i> </p>
+                        <p class="mt-2">Aedes aegypti is the principal vector of life-threatening tropical diseases such as yellow fever and dengue, which causes profound social and economic turmoil across the Global South nations. 
+                        <p class="mt-3">
+                            We are developing baseline object detection methodologies to support the elimination of Aedes aegypti breeding sites, in partnership with public health agencies in Brazil (Fiocruz). </p>
+                            <p class="mt-2">
+                            For this purpose, we have created a brand-new dataset comprising 26 UAV recordings of high-incidence tropical disease regions, including object annotations. We are currently refining real-time object detection techniques capable of identifying critical small objects (such as tires) in these environments that serve as the main mosquitoes breeding sites.
+                            A paper reporting the dataset + baseline methodologies is currently being written.
+                            </p>
+                            <p class="mt-2"><i>Research project awarded the Google Latin America Research Award.</i>
+                        </p>
                         <div class="mt-3 flex flex-wrap gap-2">
-                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">keyword</span>
-                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">another keyword</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Computer Vision</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Object detection</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Health</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Dataset creation</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Image processing</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Aedes aegypti</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Tropical diseases</span>
+                            <span class="text-sm bg-gray-200 text-gray-700 px-2 py-1">Dengue</span>
+
                         </div>
                     </div>
                 </div>
@@ -142,8 +244,19 @@
             <section id="projects" class="mb-20">
                 <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;projects/</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card p-6"><h3 class="text-xl mb-2">Project One</h3><p class="mb-4 text-gray-600">A brief description of this awesome project. It solves a real-world problem with a clean and intuitive user interface.</p><a href="#" target="_blank" class="font-bold">View on GitHub &rarr;</a></div>
-                    <div class="card p-6"><h3 class="text-xl mb-2">Project Two</h3><p class="mb-4 text-gray-600">Details about another one of my creations. This one focuses on performance and scalability, built with modern technologies.</p><a href="#" target="_blank" class="font-bold">Live Demo &rarr;</a></div>
+                    <div class="card p-6" data-url="https://github.com/milasd/memo-mcp">
+                        <h3 class="text-xl mb-2">Memo MCP</h3>
+                        <p class="mb-4 text-gray-600">Memo MCP is a <b>local Model Context Protocol (MCP) server</b> or <b>Claude agent</b> that enables LLMs to query, interact with and remember personal journal data using <i>Retrieval-Augmented Generation (RAG)</i> with <i>data indexing</i> and GPU support for faster embeddings.</p>
+                        <p class="mb-4 text-gray-600">Recover past context for new conversations and tasks anytime.</p>
+                        <a href="https://github.com/milasd/memo-mcp" target="_blank" class="font-bold">View on GitHub &rarr;</a>
+                    </div>
+                    
+                    <div class="card p-6" data-url="https://github.com/milasd/asm_practice">
+                        <h3 class="text-xl mb-2">ARM Assembly practice</h3>
+                        <p class="mb-4 text-gray-600">Sample exercises to explore ARM64 Assembly. </p>
+                        <p class="mb-4 text-gray-600">(I'm using syscalls directly as to observe how these work; it's adviseable to not do that in production settings.)</p>
+                        <a href="https://github.com/milasd/asm_practice" target="_blank" class="font-bold">View on GitHub &rarr;</a>
+                    </div>
                 </div>
             </section>
 
@@ -151,15 +264,121 @@
             <section id="music-illustration" class="mb-20">
                 <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;music & illustration</h2>
                 <div class="card p-5">
-                    <p>Beyond my professional and academic work, I have a passion for singing and illustration. These creative outlets provide a wonderful balance to my technical pursuits and allow me to explore different forms of expression.</p>
+                    <p class="mb-6">I’ve been creating illustrations since childhood, with a particular love for the Japanese anime/manga style :) It’s a hobby I revisit from time to time, although I also took on commissioned work during my undergrad years. I use both digital and analog techniques (mostly watercolour for analog).</p>
+                    
+                    <!-- Artwork Gallery -->
+                    <div class="artwork-gallery">
+                        <h3 class="text-xl mb-4 font-bold">✱ some digital illustrations (2019-20)</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="artwork-item cursor-pointer transition-transform hover:scale-105" data-artwork="images/art/p1.PNG">
+                                <img src="images/art/p1.PNG" alt="Artwork 1" class="w-full h-auto border border-gray-300 hover:border-gray-500 transition-colors">
+                            </div>
+                            <div class="artwork-item cursor-pointer transition-transform hover:scale-105" data-artwork="images/art/p2.PNG">
+                                <img src="images/art/p2.PNG" alt="Artwork 2" class="w-full h-auto border border-gray-300 hover:border-gray-500 transition-colors">
+                            </div>
+                            <div class="artwork-item cursor-pointer transition-transform hover:scale-105" data-artwork="images/art/p3.jpg">
+                                <img src="images/art/p3.jpg" alt="Artwork 3" class="w-full h-auto border border-gray-300 hover:border-gray-500 transition-colors">
+                            </div>
+                            <div class="artwork-item cursor-pointer transition-transform hover:scale-105" data-artwork="images/art/p4.PNG">
+                                <img src="images/art/p4.PNG" alt="Artwork 4" class="w-full h-auto border border-gray-300 hover:border-gray-500 transition-colors">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <!-- Charity Section -->
+            <!-- Artwork Modal -->
+            <div id="artwork-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden transition-opacity duration-300 p-4">
+                <div class="relative">
+                    <img id="modal-artwork" src="" alt="Artwork">
+                    <button id="close-modal" class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300 transition-colors">&times;</button>
+                    
+                    <!-- Navigation Arrows -->
+                    <button id="prev-artwork" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition-colors">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <button id="next-artwork" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300 transition-colors">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Volunteering Section -->
             <section id="volunteering" class="mb-20">
                 <h2 class="text-3xl md:text-4xl mb-8">>&nbsp;volunteering</h2>
-                <div class="card p-5">
-                    <p>I believe in giving back to the community. Here, I'll share some of the charity activities and volunteer work I'm involved with.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Mathematics Teacher Card -->
+                    <div class="card p-6">
+                        <h3 class="text-xl mb-0">Pré-técnico da Cruzada: Mathematics Teacher</h3>
+                        <p class="mb-4 text-gray-600">I teach middle-school mathematics to 8th graders from the Cruzada slum, who will be taking competitive entrance exams for strong public high schools that could change the course of their lives.</p>
+                        <p class="mb-4 text-gray-600">Besides the math lessons, I also help students with their Chemistry and Physics questions.</p>
+                        <div class="text-center mb-1">
+                            <p class="text-xs text-gray-500">
+                                <a href="https://www.instagram.com/pretecnicodacruzada/" target="_blank" class="hover:text-white">instagram</a> | 
+                                <a href="https://www.facebook.com/pretecnicocruzada/" target="_blank" class="hover:text-white">facebook</a>
+                            </p>
+                        </div>
+                        <div class="volunteer-image-container mt-1">
+                            <div class="volunteer-gallery" data-gallery="pre-tecnico">
+                                <div class="volunteer-image-wrapper">
+                                    <img src="images/volunteering/pre_cruzada/precr1.jpg" alt="Teaching at Pre-técnico da Cruzada" class="volunteer-image">
+                                    <button class="gallery-prev hidden">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M15 18l-6-6 6-6"/>
+                                        </svg>
+                                    </button>
+                                    <button class="gallery-next hidden">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 18l6-6-6-6"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sopao do Bem Card -->
+                    <div class="card p-6">
+                        <h3 class="text-xl mb-0">Sopão do Bem: Meal prep & distribution for the homeless</h3>
+                        <p class="mb-4 text-gray-600">Every 2 weeks, we prepare and distribute fresh meals while providing human connection and dignity to those experiencing homelessness in downtown Rio de Janeiro.</p>
+                        <p class="mb-4 text-gray-600">We also collect and donate clothing and blankets, and organize charity shop events as to raise funds for the organization. </p>
+                        <div class="text-center mb-1">
+                            <p class="text-xs text-gray-500">
+                                <a href="https://www.instagram.com/sopaodobemrj" target="_blank" class="hover:text-white">instagram</a> | 
+                                <a href="https://www.facebook.com/sopaodobemrj" target="_blank" class="hover:text-white">facebook</a>
+                            </p>
+                        </div>
+                        <div class="volunteer-image-container mt-1">
+                            <div class="volunteer-gallery" data-gallery="sopao">
+                                <div class="volunteer-image-wrapper">
+                                    <img src="images/volunteering/sopao/sopb1.jpeg" alt="Sopão do Bem volunteering" class="volunteer-image">
+                                    <button class="gallery-prev hidden">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M15 18l-6-6 6-6"/>
+                                        </svg>
+                                    </button>
+                                    <button class="gallery-next hidden">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 18l6-6-6-6"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Third card in second row, centered -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                    <div class="card p-6 md:col-start-1 md:col-end-2 md:mx-auto md:max-w-md">
+                        <h3 class="text-xl mb-0">Pré-Universitário UFRJ: Chemistry Teacher</h3>
+                        <p class="text-base text-gray-500 mb-2">2015</p>
+                        <p class="mb-4 text-gray-600">I taught High School level Chemistry in a charity prep school for teenagers, adults and elders residing in Favelas who could not afford preparatory courses for university entrance exams.</p>
+                    </div>
                 </div>
             </section>
 
@@ -167,9 +386,9 @@
             <section id="contact" class="text-center">
                 <h2 class="text-3xl md:text-4xl mb-4">>&nbsp;contact.me</h2>
                 <p class="text-lg">
-                    I'm always open to discussion on interesting topics. Feel free to reach out.
+                    I'm always open to discussion on interesting topics. Feel free to reach out!
                 </p>
-                <a href="mailto:your.email@example.com" class="text-xl inline-block mt-2">your.email@example.com</a>
+                <a href="mailto:milasou.sh@gmail.com" class="text-xl inline-block mt-2">milasou.sh@gmail.com</a>
             </section>
 
         </main>
